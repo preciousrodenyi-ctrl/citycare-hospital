@@ -59,3 +59,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+document.addEventListener("DOMContentLoaded", function () {
+
+    const serviceSelect = document.getElementById("service");
+    const appointmentForm = document.querySelector("form");
+
+    appointmentForm.addEventListener("submit", function (event) {
+
+        const selectedService = serviceSelect.value;
+
+        if (selectedService === "") {
+            alert("Please select a service.");
+            event.preventDefault();
+        } else {
+            alert("You selected: " + selectedService);
+        }
+
+    });
+
+});
