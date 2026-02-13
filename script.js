@@ -1,80 +1,86 @@
-// Appointment Form Validation
+// Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", function () {
 
-    const appointmentForm = document.querySelector("form");
+    // ----------------------------
+    // Appointment Form Validation
+    // ----------------------------
+    const appointmentForm = document.getElementById("appointment-form");
+    const appointmentService = document.getElementById("appointment-service");
 
-    appointmentForm.addEventListener("submit", function (event) {
+    if (appointmentForm) {
+        appointmentForm.addEventListener("submit", function (event) {
+            const name = document.getElementById("appointment-name").value.trim();
+            const phone = document.getElementById("appointment-phone").value.trim();
+            const email = document.getElementById("appointment-email").value.trim();
+            const date = document.getElementById("appointment-date").value.trim();
+            const service = appointmentService.value;
 
-        const name = document.getElementById("appointment-name").value;
-        const phone = document.getElementById("appointment-phone").value;
-        const email = document.getElementById("appointment-email").value;
-        const date = document.getElementById("appointment-date").value;
+            if (!name || !phone || !email || !date || !service) {
+                alert("Please fill in all appointment fields and select a service.");
+                event.preventDefault();
+            } else {
+                alert(`Appointment booked successfully!\nService: ${service}`);
+                // You can submit or save the data here
+                // event.preventDefault(); // uncomment if you want to prevent actual submission for testing
+            }
+        });
+    }
 
-        if (name === "" || phone === "" || email === "" || date === "") {
-            alert("Please fill in all appointment fields.");
-            event.preventDefault(); // Stops form from submitting
-        } else {
-            alert("Appointment booked successfully!");
-        }
-
-    });
-
-});
-
-// Contact Form Validation
-document.addEventListener("DOMContentLoaded", function () {
-
+    // ----------------------------
+    // Contact Form Validation
+    // ----------------------------
     const contactForm = document.getElementById("contact-form");
 
-    contactForm.addEventListener("submit", function (event) {
+    if (contactForm) {
+        contactForm.addEventListener("submit", function (event) {
+            const name = document.getElementById("contact-name").value.trim();
+            const email = document.getElementById("contact-email").value.trim();
+            const message = document.getElementById("message").value.trim();
 
-        const name = document.getElementById("contact-name").value.trim();
-        const email = document.getElementById("contact-email").value.trim();
-        const message = document.getElementById("message").value.trim();
+            if (!name || !email || !message) {
+                alert("Please fill in all contact fields.");
+                event.preventDefault();
+            } else {
+                alert("Message sent successfully! Thank you for contacting us.");
 
-        if (name === "" || email === "" || message === "") {
-            alert("Please fill in all contact fields.");
-            event.preventDefault(); // Stops form from submitting
-        } else {
-            alert("Message sent successfully! Thank you for contacting us.");
+                // Optional: store contact data in localStorage
+                const contactData = {
+                    name: name,
+                    email: email,
+                    message: message,
+                    date: new Date().toLocaleString()
+                };
 
-            // Optional: store contact data in localStorage
-            const contactData = {
-                name: name,
-                email: email,
-                message: message,
-                date: new Date().toLocaleString()
-            };
+                let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+                contacts.push(contactData);
+                localStorage.setItem("contacts", JSON.stringify(contacts));
 
-            let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
-            contacts.push(contactData);
-            localStorage.setItem("contacts", JSON.stringify(contacts));
-
-            // Clear form
-            contactForm.reset();
-
-            event.preventDefault(); // prevent page redirect for demonstration
-        }
-
-    });
+                contactForm.reset();
+                event.preventDefault(); // prevent page redirect for demonstration
+            }
+        });
+    }
 
 });
-document.addEventListener("DOMContentLoaded", function () {
 
-    const serviceSelect = document.getElementById("service");
-    const appointmentForm = document.querySelector("form");
+// ----------------------------
+// Toggle About Section
+// ----------------------------
+function toggleAbout() {
+    const about = document.getElementById("about");
+    if (about) {
+        about.style.display = (about.style.display === "none" || about.style.display === "") ? "block" : "none";
+    }
+}
 
-    appointmentForm.addEventListener("submit", function (event) {
+// ----------------------------
+// Toggle Contact Section
+// ----------------------------
+function toggleContact() {
+    const contact = document.getElementById("contact");
+    if (contact) {
+        contact.style.display = (contact.style.display === "none" || contact.style.display === "") ? "block" : "none";
+    }
+}
 
-        const selectedService = serviceSelect.value;
 
-        if (selectedService === "") {
-            alert("Please select a service.");
-            event.preventDefault();
-        } else {
-            alert("You selected: " + selectedService);
-        }
-
-    });
-
-});

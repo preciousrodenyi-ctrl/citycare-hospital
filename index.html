@@ -13,30 +13,34 @@
     <main>
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+    
+         <!-- Page content goes here -->
+
     <section id="home">
         <h2>Home</h2>
         <p>Welcome to CITY CARE HOSPITAL, your trusted partner in healthcare excellence.</p>
     </section>
-    <section id ="about">
-        <h2>About Us</h2>
+    
+        <button onclick="toggleAbout()">About Us</button>
+        <section id="about" style="display: none;">
+
+        <h2>about Us</h2>
         <p>CITY CARE HOSPITAL is dedicated to providing exceptional medical care and compassionate service to our community.</p>
         <p>Our mission is to deliver high-quality healthcare services with integrity, compassion, and excellence.</p>
         <p>We strive to be the most trusted healthcare provider in our region, offering comprehensive care for children.</p>
     </section>
     <label for="service">Service:</label>
-<select id="service" name="service">
-    <option value="">-- Select a Service --</option>
-    <option value="Emergency Care">Emergency Care</option>
-    <option value="Primary Care">Primary Care</option>
+    <select id="service" name="service">
+    <option value="Emergency care">Emergency Care</option>
+    <option value="Primary care">Primary Care</option>
     <option value="Specialty Services">Specialty Services</option>
 </select>
-
 
         <section>
         <form action="appointment.html">
@@ -57,11 +61,12 @@
             <input type="submit" value="Book Appointment">
         </form>
     </section>
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>For more information, please contact us at:</p>
-        <p>Email: info@citycarehospital.com</p>
-        <p>Phone: (+254) 756-7890</p>
+    <button onclick="toggleContact()">Contact Us</button>
+    <section id="contact" style="display: none;">
+    <h2>Contact Us</h2>
+    <p>For more information...</p>
+    <p>Email: info@citycarehospital.com</p>
+    <p>Phone: (+254) 756-7890</p>
     </section>
     <form action="contact.html">
         <label for="name">Name:</label>
