@@ -21,29 +21,40 @@
 
 <section>
     <form id="appointment-form">
-        <label for="appointment-name">Name:</label>
-        <input type="text" id="appointment-name" name="name"><br><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
 
-        <label for="appointment-phone">Phone:</label>
-        <input type="tel" id="appointment-phone" name="phone"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone"><br><br>
+    <label for="services">Select a Service:</label>
+    <select id="services" name="services">
+        <option value="">-- Select a Service --</option>
+        <option value="Emergency Care">Emergency Care</option>
+        <option value="Primary Care">Primary Care</option>
+        <option value="Specialty Services">Specialty Services</option>
+    </select><br><br>
 
-        <label for="appointment-email">Email:</label>
-        <input type="email" id="appointment-email" name="email"><br><br>
-
-        <label for="appointment-date">Date:</label>
-        <input type="date" id="appointment-date" name="date"><br><br>
-
-        <label for="appointment-service">Service:</label>
-        <select id="appointment-service" name="service">
-            <option value="">-- Select a Service --</option>
-            <option value="Emergency Care">Emergency Care</option>
-            <option value="Primary Care">Primary Care</option>
-            <option value="Specialty Services">Specialty Services</option>
+    <!-- Specialty dropdown starts hidden -->
+    <div id="specialty-container" style="display: none;">
+        <label for="appointment-specialty">Specialty Service:</label>
+        <select id="appointment-specialty" name="specialty">
+            <option value="">-- Select a specialty --</option>
+            <option value="Pediatrics">Pediatrics</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Orthopedics">Orthopedics</option>
+            <option value="Neurology">Neurology</option>
         </select><br><br>
+    </div>
 
-        <input type="submit" value="Book Appointment">
-    </form>
+    <input type="submit" value="Book Appointment">
+</form>
+
 </section>
+footer>
+    <p>2026 City Care Hospital</p>
+</footer>
 <script src="script.js"></script>
 </body>
 </html>

@@ -82,5 +82,54 @@ function toggleContact() {
         contact.style.display = (contact.style.display === "none" || contact.style.display === "") ? "block" : "none";
     }
 }
+function selectSpecialty() {
+    const specialtySelect = document.getElementById("specialty");
+    const selectedValue = specialtySelect.value;
 
+    const display = document.getElementById("selected-specialty");
 
+    if (selectedValue === "") {
+        alert("Please select a specialty service first!");
+        display.textContent = "";
+    } else {
+        display.textContent = "You selected: " + selectedValue;
+        alert("You selected: " + selectedValue);
+    }
+}
+const specialtySelect = document.getElementById("specialty");
+if (specialtySelect) {
+    specialtySelect.addEventListener("change", selectSpecialty);
+}
+document.addEventListener("DOMContentLoaded", function () {
+
+    const serviceSelect = document.getElementById("services");
+    const specialtyContainer = document.getElementById("specialty-container");
+    const appointmentForm = document.getElementById("appointment-form");
+
+    // Show or hide specialty dropdown based on service selection
+    serviceSelect.addEventListener("change", function () {
+        if (serviceSelect.value === "Specialty Services") {
+            specialtyContainer.style.display = "block";
+        } else {
+            specialtyContainer.style.display = "none";
+            document.getElementById("appointment-specialty").value = ""; // reset
+        }
+    });
+
+    // Form validation
+    appointmentForm.addEventListener("submit", function (event) {
+        const service = serviceSelect.value;
+        const specialty = document.getElementById("appointment-specialty").value;
+
+        if (!service) {
+            alert("Please select a service.");
+            event.preventDefault();
+        } else if (service === "Specialty Services" && !specialty) {
+            alert("Please select a specialty service.");
+            event.preventDefault();
+        } else {
+            alert("Appointment booked successfully!\nService: " + service + (specialty ? " (" + specialty + ")" : ""));
+        }
+    });
+
+});

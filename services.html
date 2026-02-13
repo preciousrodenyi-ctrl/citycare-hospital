@@ -33,7 +33,21 @@
             </ul>
         </li>
     </ul>
+
+    <!-- Dropdown to select a specialty -->
+    <label for="specialty services">Select a Specialty Service:</label>
+    <select id="specialty services" name="specialty services">
+        <option value="">-- Choose a specialty --</option>
+        <option value="Pediatrics">Pediatrics</option>
+        <option value="Cardiology">Cardiology</option>
+        <option value="Orthopedics">Orthopedics</option>
+        <option value="Neurology">Neurology</option>
+    </select>
+
+    <button onclick="selectSpecialty()">Confirm Selection</button>
+    <p id="selected-specialty"></p>
 </section>
+
 <footer>
     <p>2026 City Care Hospital</p>
 </footer>
