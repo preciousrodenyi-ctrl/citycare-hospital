@@ -2,30 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Appointment Confirmation</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Care Hospital | Book Appointment</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
-    <h1>Appointment Confirmation</h1>
+    <h1>Book an Appointment</h1>
 </header>
+<nav>
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="appointment.html">Book Appointment</a></li>
+    </ul>
+</nav>
 
-<main>
-    <section>
-        <h2>Thank You!</h2>
-        <p>Your appointment request has been successfully submitted.</p>
-        <p>Our team will contact you shortly to confirm your booking.</p>
+<section>
+    <form id="appointment-form">
+        <label for="appointment-name">Name:</label>
+        <input type="text" id="appointment-name" name="name"><br><br>
 
-        <a href="index.html">Return to Home</a>
-    </section>
-</main>
+        <label for="appointment-phone">Phone:</label>
+        <input type="tel" id="appointment-phone" name="phone"><br><br>
 
-<footer>
-    <p> 2026 City Care Hospital</p>
-</footer>
+        <label for="appointment-email">Email:</label>
+        <input type="email" id="appointment-email" name="email"><br><br>
+
+        <label for="appointment-date">Date:</label>
+        <input type="date" id="appointment-date" name="date"><br><br>
+
+        <label for="appointment-service">Service:</label>
+        <select id="appointment-service" name="service">
+            <option value="">-- Select a Service --</option>
+            <option value="Emergency Care">Emergency Care</option>
+            <option value="Primary Care">Primary Care</option>
+            <option value="Specialty Services">Specialty Services</option>
+        </select><br><br>
+
+        <input type="submit" value="Book Appointment">
+    </form>
+</section>
 <script src="script.js"></script>
-
 </body>
 </html>
